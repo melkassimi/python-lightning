@@ -40,7 +40,9 @@ There are considered three main scenarios for installing this project:
     c) validate packages and publish to PyPI
 """
 import contextlib
+
 import glob
+import sys
 import logging
 import os
 import tempfile
@@ -147,6 +149,8 @@ if __name__ == "__main__":
             # replace imports and copy the code
             assistant.create_mirror_package(_PATH_SRC, _PACKAGE_MAPPING)
     else:
+
+
         assert len(local_pkgs) > 0
         # PL as a package is distributed together with Fabric, so in such case there are more than one candidate
         package_to_install = "pytorch_lightning" if "pytorch_lightning" in local_pkgs else local_pkgs[0]
